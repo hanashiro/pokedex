@@ -9,14 +9,38 @@ describe('controllers', function(){
   	scope = $rootScope.$new();
   }));
 
-  it('should define more than 5 awesome things', inject(function($controller) {
-    expect(scope.awesomeThings).toBeUndefined();
-
-    $controller('MainCtrl', {
+  it('should validate email', inject(function($controller) {
+    $controller('DetailsCtrl', {
       $scope: scope
   	});
 
-    expect(angular.isArray(scope.awesomeThings)).toBeTruthy();
-    expect(scope.awesomeThings.length > 5).toBeTruthy();
+    expect(scope.Comments.validateEmail('asdf')).toBeFalsy();
+    expect(scope.Comments.validateEmail('123')).toBeFalsy();
+    expect(scope.Comments.validateEmail('sadf@')).toBeFalsy();
+    expect(scope.Comments.validateEmail('123@')).toBeFalsy();
+    expect(scope.Comments.validateEmail('@asdf')).toBeFalsy();
+    expect(scope.Comments.validateEmail('@123')).toBeFalsy();
+    expect(scope.Comments.validateEmail('asdf@sadf')).toBeFalsy();
+    expect(scope.Comments.validateEmail('@.com')).toBeFalsy();
+    expect(scope.Comments.validateEmail('asdf@123.com')).toBeTruthy();
   }));
+  
+  it('should validate comment before send', inject(function($controller) {
+    $controller('DetailsCtrl', {
+      $scope: scope
+  	});
+
+    expect(scope.Comments.validateBeforeSend()).toBeFalsy();
+    
+    scope.Comments.newComment.name = "name";
+    expect(scope.Comments.validateBeforeSend()).toBeFalsy();
+    
+    scope.Comments.newComment.email = "asdf@123.com";
+    expect(scope.Comments.validateBeforeSend()).toBeFalsy();
+    
+    scope.Comments.newComment.text = "sometext";
+    expect(scope.Comments.validateBeforeSend()).toBeTruthy();
+    
+  }));
+  
 });
