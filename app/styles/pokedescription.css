@@ -1,0 +1,107 @@
+.btn-back {
+  position: relative;
+  left: 10px;
+  z-index: 5;
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+  border: 0;
+  cursor: pointer;
+  background-color: red;
+  color: white; }
+  .btn-back::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+    border-left: 0px solid transparent;
+    border-right: 10px solid red;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    cursor: pointer; }
+
+#poke-top {
+  height: 60px;
+  background-color: #666;
+  color: #fff; }
+  #poke-top #pokemon-id {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em; }
+  #poke-top #pokemon-types {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    text-align: center; }
+    #poke-top #pokemon-types .pokemon-type {
+      height: 15px; }
+
+#poke-description #pokemon-hw {
+  padding: 10px; }
+#poke-description #pokemon-sprite {
+  display: block;
+  margin: 0 auto; }
+#poke-description #poke-info {
+  padding: 10px;
+  background-color: #666;
+  color: #fff; }
+  #poke-description #poke-info #pokemon-stats b {
+    display: inline-block;
+    min-width: 100px; }
+  @media only screen and (min-width: 768px) {
+    #poke-description #poke-info #pokemon-description, #poke-description #poke-info #pokemon-stats {
+      vertical-align: middle;
+      display: inline-block;
+      width: calc(50% - 20px); }
+    #poke-description #poke-info #pokemon-stats {
+      padding-left: 20px; } }
+  @media (max-width: 768px) {
+    #poke-description #poke-info #pokemon-description {
+      margin-bottom: 20px; } }
+
+.poke-comments-section .poke-comments {
+  list-style: none;
+  padding: 10px; }
+.poke-comments-section .poke-comments-list-item {
+  margin-bottom: 10px; }
+.poke-comments-section .new-comment input, .poke-comments-section .new-comment textarea {
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px; }
+.poke-comments-section .new-comment input {
+  height: 35px;
+  width: calc(50% - 2px); }
+.poke-comments-section .new-comment textarea {
+  min-height: 60px;
+  width: 100%;
+  display: block; }
+.poke-comments-section .new-comment button {
+  float: right;
+  height: 45px;
+  width: 80px;
+  cursor: pointer; }
+@media (max-width: 475px) {
+  .poke-comments-section .new-comment input {
+    width: 100%; } }
+.poke-comments-section .comments-user {
+  vertical-align: top;
+  max-width: 50px;
+  display: inline-block; }
+  .poke-comments-section .comments-user img {
+    width: 100%; }
+.poke-comments-section .comments-body {
+  display: inline-block;
+  width: calc(100% - 55px);
+  padding-left: 10px;
+  box-sizing: border-box;
+  max-width: 500px; }
+  .poke-comments-section .comments-body span {
+    color: #3b5998;
+    font-weight: bolder; }
+  .poke-comments-section .comments-body p {
+    margin: 0px; }
+
+/*# sourceMappingURL=pokedescription.css.map */

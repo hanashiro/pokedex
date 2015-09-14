@@ -1,0 +1,62 @@
+<header id="poke-top" >
+  <button class="btn-back" ng-click="View.back()" >back</button>
+  
+  <div id="pokemon-id" >{{Pokemon.number}} - {{Pokemon.name}}</div>
+  
+  <div id="pokemon-types" >
+    <img class="pokemon-type" src="" ng-repeat="type in Pokemon.types" ng-src="http://serebii.net/pokedex-bw/type/{{type.name}}.gif" />
+  </div>
+</header>
+
+<section id="poke-description" >
+  
+  <div id="pokemon-hw" >
+    <b>Height:</b> {{Pokemon.height}} <br>
+    <b>Weight:</b> {{Pokemon.weight}} <br>
+  </div>
+  
+  <img id="pokemon-sprite" src="" ng-src="{{Pokemon.sprite}}" />
+  
+  <div id="poke-info">
+    <div id="pokemon-description" >
+      {{Pokemon.description}}
+    </div>
+    <div id="pokemon-stats">
+      <b>HP:</b> {{Pokemon.hp}} <br>
+      <b>Attack:</b> {{Pokemon.attack}} <br>
+      <b>SP Attack:</b> {{Pokemon.sp_atk}} <br>
+      <b>Defense:</b> {{Pokemon.defense}} <br>
+      <b>SP Defense:</b> {{Pokemon.sp_def}} <br>
+      <b>Speed:</b> {{Pokemon.speed}} <br>
+    </div>
+  </div>
+
+  
+</section>
+
+<section class="poke-comments-section" >
+  <ul class="poke-comments" >
+    <li class="poke-comments-list-item new-comment">
+      <div class="comments-user">
+        <img src="images/user.png" />
+      </div>
+      <div class="comments-body">
+        <input type="text" placeholder="Your Name" ng-model="Comments.newComment.name" />
+        <input type="email" placeholder="Your Email" ng-model="Comments.newComment.email" />
+        <textarea placeholder="New Comment" ng-model="Comments.newComment.text" ></textarea>
+        <button ng-click="Comments.add()" >Send</button>
+      </div>
+    </li>
+    <li class="poke-comments-list-item" ng-repeat="comment in Comments.list" >
+      <div class="comments-user">
+        <img src="images/user.png" />
+      </div>
+      <div class="comments-body">
+        <span>{{comment.name}}</span>
+        <p>
+          {{comment.text}}
+        </p>
+      </div>
+    </li>
+  </ul>
+</section>

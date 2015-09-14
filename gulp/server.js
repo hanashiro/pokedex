@@ -30,10 +30,13 @@ function browserSyncInit(baseDir, files, browser) {
       baseDir: baseDir,
       middleware: proxyMiddleware
     },
-    browser: browser
+    browser: browser,
+    port: process.env.PORT,
+    host: process.env.IP
   });
 
 }
+
 
 gulp.task('serve', ['watch'], function () {
   browserSyncInit([
