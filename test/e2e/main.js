@@ -14,7 +14,7 @@ describe('The main view', function () {
   
   it('should select a Pokemon', function () {
     element.all(by.css('.poke-list-item')).get(0).click();
-    expect( element.all(by.css('#pokemon-id')).get(0).click() ).toContain( "Bulbasaur" );
+    expect( element.all(by.css('#pokemon-id')) ).toContain( "Bulbasaur" );
   });
 
 });
